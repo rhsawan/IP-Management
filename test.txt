@@ -1,0 +1,273 @@
+insert into leaveapply (docno, compid, deptid, useremail, leavefrom, leaveto, lvstatus, altuser, leavestay, leavephone1, leavephone2, leavecause)
+values ('1', 100, 10, 'probir1@just.edu.bd', '2019/10/21', '2019/10/22', 'not_apr', 'rh.sawan@just.edu.bd', 'Dhaka', '01923836876', '', 'sickness')
+
+    call `lvapprove_Data`(
+    NEW.docno,
+    NEW.compid,
+    NEW.deptid,
+    NEW.useremail,
+    NEW.leaveFrom,
+    NEW.leaveTo,
+    NEW.leaveStay,
+    NEW.leavePhone1,
+    NEW.leavePhone2,
+    NEW.leaveCause
+   );
+
+BEGIN
+    DECLARE
+        v_email varchar(100); DECLARE c1 CURSOR FOR
+    SELECT
+        useremail
+    FROM
+        approle
+    WHERE
+        compid = compId AND doctype = 'CL' and deptid = deptId; OPEN c1; igmLoop: LOOP FETCH c1
+    INTO v_email; IF EXISTS(
+    SELECT
+        COUNT(*)
+    FROM
+        approle
+    WHERE
+        compid = 100 AND deptid = 10 and doctype = 'CL'
+) THEN
+INSERT INTO leaveapr(
+    docno,
+    compid,
+    deptid,
+    useremail,
+    leavefrom,
+    leaveto,
+    lvstatus,
+    altuser,
+    leavestay,
+    leavephone1,
+    leavephone2,
+    refdocno,
+    leavecause
+)
+VALUES(
+    fn_docno(compId, 'CLA'),
+    compId,
+    deptId ,
+    userEmail ,
+    leaveFrom ,
+    leaveTo ,
+    'not_apr',
+    v_email,
+    leaveStay ,
+    leavePhone1 ,
+    leavePhone2 ,
+    docNo ,
+    leaveCause 
+);
+ 
+
+BEGIN
+    DECLARE
+        v_email varchar(100); DECLARE c1 CURSOR FOR
+    SELECT
+        useremail
+    FROM
+        approle
+    WHERE
+        compid = compId AND doctype = 'CL' and deptid = deptId; OPEN c1; igmLoop: LOOP FETCH c1
+    INTO v_email; IF EXISTS(
+    SELECT
+        COUNT(*)
+    FROM
+        approle
+    WHERE
+        compid = 100 AND deptid = 10 and doctype = 'CL'
+) THEN
+INSERT INTO leaveapr(
+    docno,
+    compid,
+    deptid,
+    useremail,
+    leavefrom,
+    leaveto,
+    lvstatus,
+    altuser,
+    leavestay,
+    leavephone1,
+    leavephone2,
+    refdocno,
+    leavecause
+)
+VALUES(
+    fn_docno(compId, 'CLA'),
+    compId,
+    deptId ,
+    userEmail ,
+    leaveFrom ,
+    leaveTo ,
+    'not_apr',
+    v_email,
+    leaveStay ,
+    leavePhone1 ,
+    leavePhone2 ,
+    docNo ,
+    leaveCause 
+);
+ 
+BEGIN
+    DECLARE
+        v_email varchar(100); DECLARE c1 CURSOR FOR
+    SELECT
+        useremail
+    FROM
+        approle
+    WHERE
+        compid = compId AND doctype = 'CL' and deptid = deptId; OPEN c1; igmLoop: LOOP FETCH c1
+    INTO v_email; 
+    
+    
+    IF EXISTS(
+    SELECT
+        COUNT(*)
+    FROM
+        approle
+    WHERE
+        compid = 100 AND deptid = 10 and doctype = 'CL'
+) THEN
+INSERT INTO leaveapr(
+    docno,
+    compid,
+    deptid,
+    useremail,
+    leavefrom,
+    leaveto,
+    lvstatus,
+    altuser,
+    leavestay,
+    leavephone1,
+    leavephone2,
+    refdocno,
+    leavecause
+)
+VALUES(
+    fn_docno(compId, 'CLA'),
+    compId,
+    deptId ,
+    userEmail ,
+    leaveFrom ,
+    leaveTo ,
+    'not_apr',
+    v_email,
+    leaveStay ,
+    leavePhone1 ,
+    leavePhone2 ,
+    docNo ,
+    leaveCause 
+);
+ 
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `lvapprove_Data`(IN `docNo` VARCHAR(20), IN `compId` INT(3), IN `deptId` INT(3), IN `userEmail` VARCHAR(100), IN `leaveFrom` DATE, IN `leaveTo` DATE, IN `leaveStay` VARCHAR(100), IN `leavePhone1` VARCHAR(20), IN `leavePhone2` VARCHAR(20), IN `leaveCause` VARCHAR(255)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN
+    DECLARE
+        v_email varchar(100); DECLARE c1 CURSOR FOR
+    SELECT
+        useremail
+    FROM
+        approle
+    WHERE
+        compid = compId AND doctype = 'CL' and deptid = deptId; OPEN c1; igmLoop: LOOP FETCH c1
+    INTO v_email; 
+    
+    
+    IF EXISTS(
+    SELECT
+        COUNT(*)
+    FROM
+        approle
+    WHERE
+        compid = 100 AND deptid = 10 and doctype = 'CL'
+) THEN
+INSERT INTO leaveapr(
+    docno,
+    compid,
+    deptid,
+    useremail,
+    leavefrom,
+    leaveto,
+    lvstatus,
+    altuser,
+    leavestay,
+    leavephone1,
+    leavephone2,
+    refdocno,
+    leavecause
+)
+VALUES(
+    fn_docno(compId, 'CLA'),
+    compId,
+    deptId ,
+    userEmail ,
+    leaveFrom ,
+    leaveTo ,
+    'not_apr',
+    v_email,
+    leaveStay ,
+    leavePhone1 ,
+    leavePhone2 ,
+    docNo ,
+    leaveCause 
+);
+ 
+
+DROP PROCEDURE `lvapprove_Data`;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `lvapprove_Data`(IN `docNo` VARCHAR(20), IN `compId` INT(3), IN `deptId` INT(3), IN `userEmail` VARCHAR(100), IN `leaveFrom` DATE, IN `leaveTo` DATE, IN `leaveStay` VARCHAR(100), IN `leavePhone1` VARCHAR(20), IN `leavePhone2` VARCHAR(20), IN `leaveCause` VARCHAR(255)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN
+    DECLARE
+        v_email varchar(100); DECLARE c1 CURSOR FOR
+    SELECT
+        useremail
+    FROM
+        approle
+    WHERE
+        compid = compId AND doctype = 'CL' and deptid = deptId; OPEN c1; igmLoop: LOOP FETCH c1
+    INTO v_email; 
+    
+    
+    IF EXISTS(
+    SELECT
+        COUNT(*)
+    FROM
+        approle
+    WHERE
+        compid = 100 AND deptid = 10 and doctype = 'CL'
+) THEN
+INSERT INTO leaveapr(
+    docno,
+    compid,
+    deptid,
+    useremail,
+    leavefrom,
+    leaveto,
+    lvstatus,
+    altuser,
+    leavestay,
+    leavephone1,
+    leavephone2,
+    refdocno,
+    leavecause
+)
+VALUES(
+    fn_docno(compId, 'CLA'),
+    compId,
+    deptId ,
+    userEmail ,
+    leaveFrom ,
+    leaveTo ,
+    'not_apr',
+    v_email,
+    leaveStay ,
+    leavePhone1 ,
+    leavePhone2 ,
+    docNo ,
+    leaveCause 
+);
+ 
+
+END IF;
+END LOOP igmLoop; CLOSE c1;
+END
